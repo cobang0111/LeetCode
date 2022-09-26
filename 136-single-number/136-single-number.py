@@ -7,7 +7,7 @@ class Solution:
             if nums==[]:
                 return x1
                 break
-            
-            if x1!=nums.pop():
+            x2=nums.pop()
+            if x1!=x2:
                 return x1
                 break
