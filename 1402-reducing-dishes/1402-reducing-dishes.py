@@ -2,14 +2,11 @@ class Solution:
     def maxSatisfaction(self, satisfaction: List[int]) -> int:
         time = len(satisfaction)
         satisfaction.sort()
-
-        max = 0
+        max_dish = 0
+        temp = 0
         for i in range(time):
-            temp = 0
-            for i in range(len(satisfaction)):
-                temp+=satisfaction[i]*(i+1)
-            if max < temp:
-                max = temp
-            satisfaction.pop(0)
+            temp += sum(satisfaction[-i-1:])
+            if temp > max_dish:
+                max_dish = temp
             
-        return max
+        return max_dish
